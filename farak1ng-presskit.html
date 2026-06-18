@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FARAK1NG — Press Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#0b0608;
+    --noir-soft:#150a0d;
+    --ojera:#2b1420;
+    --sangre:#8a0f24;
+    --sangre-viva:#e2233f;
+    --hueso:#f0e9e6;
+    --niebla:#b3a3a8;
+    --maxw:1080px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--noir);
+    color:var(--hueso);
+    font-family:'Archivo',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* grain overlay */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    pointer-events:none;
+    opacity:.05;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:500;
+    background:rgba(11,6,8,.78);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(138,15,36,.4);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:var(--maxw);margin:0 auto;
+  }
+  .wordmark{
+    font-family:'Space Mono',monospace;
+    font-weight:700;letter-spacing:.12em;font-size:.85rem;
+    color:var(--hueso);
+  }
+  .wordmark span{color:var(--sangre-viva);}
+  .nav-links{display:flex;gap:22px;}
+  .nav-links a{
+    font-family:'Space Mono',monospace;font-size:.72rem;
+    letter-spacing:.1em;color:var(--niebla);
+    text-transform:uppercase;
+    border-bottom:1px solid transparent;
+    transition:color .25s, border-color .25s;
+    padding-bottom:4px;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{
+    color:var(--hueso);border-color:var(--sangre-viva);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:9vh 0 0;
+    position:relative;
+  }
+  .hero .container{
+    display:flex;flex-direction:column;align-items:flex-start;gap:22px;
+    padding-bottom:70px;
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:.72rem;letter-spacing:.22em;
+    color:var(--sangre-viva);text-transform:uppercase;
+  }
+  h1.title{
+    font-family:'Bodoni Moda',serif;
+    font-style:italic;font-weight:800;
+    font-size:clamp(3.4rem,11vw,7.2rem);
+    line-height:.92;
+    color:var(--hueso);
+    text-shadow:0 0 38px rgba(226,35,63,.25);
+  }
+  .king-stamp{
+    font-family:'Space Mono',monospace;
+    font-size:.95rem;letter-spacing:.3em;
+    color:var(--sangre-viva);
+    border:1px solid var(--sangre);
+    padding:6px 14px;
+    display:inline-block;
+    margin-top:-10px;
+  }
+
+  .ticker-row{
+    display:flex;align-items:center;gap:12px;
+    font-family:'Space Mono',monospace;
+    font-size:.85rem;letter-spacing:.08em;
+    color:var(--niebla);
+    margin-top:6px;
+  }
+  .ticker-row .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--sangre-viva);
+    box-shadow:0 0 8px var(--sangre-viva);
+    animation:pulse 1.8s infinite ease-in-out;
+  }
+  .ticker-word{
+    color:var(--hueso);font-weight:700;
+    min-width:1ch;
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .ticker-word.fade{opacity:0;transform:translateY(4px);}
+
+  @keyframes pulse{
+    0%,100%{opacity:1;}
+    50%{opacity:.3;}
+  }
+
+  .tagline{
+    font-size:1.05rem;color:var(--niebla);max-width:560px;
+  }
+  .tagline strong{color:var(--hueso);font-weight:600;}
+
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+  .btn{
+    font-family:'Space Mono',monospace;
+    font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;
+    padding:14px 22px;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+    border:1px solid var(--sangre);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--sangre-viva);color:var(--noir);border-color:var(--sangre-viva);font-weight:700;}
+  .btn-primary:hover, .btn-primary:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px rgba(226,35,63,.35);}
+  .btn-secondary{color:var(--hueso);}
+  .btn-secondary:hover, .btn-secondary:focus-visible{background:rgba(138,15,36,.18);transform:translateY(-3px);}
+
+  /* ---------- DRIP DIVIDER (signature) ---------- */
+  .drip{
+    height:64px;width:100%;
+    background:var(--sangre);
+    clip-path:polygon(0% 0%,100% 0%,100% 35%,95% 92%,90% 40%,85% 100%,80% 35%,75% 88%,70% 30%,65% 96%,60% 35%,55% 82%,50% 100%,45% 30%,40% 92%,35% 35%,30% 100%,25% 30%,20% 86%,15% 35%,10% 96%,5% 30%,0% 82%);
+    filter:drop-shadow(0 14px 18px rgba(0,0,0,.55));
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .code-section{padding:90px 0;border-bottom:1px solid rgba(138,15,36,.22);position:relative;}
+  .code-section:last-of-type{border-bottom:none;}
+  .code-section.in-view{}
+
+  .code-label{
+    display:flex;align-items:center;gap:14px;margin-bottom:24px;
+  }
+  .code-num{
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.1em;
+    color:var(--sangre-viva);border:1px solid var(--sangre);
+    padding:4px 10px;
+  }
+  .code-name{
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.22em;
+    color:var(--niebla);text-transform:uppercase;
+  }
+
+  h2{
+    font-family:'Bodoni Moda',serif;font-weight:700;font-style:normal;
+    font-size:clamp(1.8rem,4vw,2.6rem);
+    color:var(--hueso);max-width:680px;margin-bottom:20px;
+  }
+  h2 em{font-style:italic;color:var(--sangre-viva);}
+
+  .body-text{color:var(--niebla);max-width:640px;font-size:1.02rem;}
+
+  /* genre progression */
+  .progression{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;align-items:center;}
+  .progression .tag{
+    font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.08em;
+    padding:8px 12px;border:1px solid rgba(179,163,168,.35);color:var(--niebla);
+    text-transform:uppercase;
+  }
+  .progression .tag.active{border-color:var(--sangre-viva);color:var(--hueso);background:rgba(226,35,63,.1);}
+  .progression .arrow{color:var(--sangre);}
+
+  /* waveform */
+  .waveform{margin-top:34px;}
+  .waveform svg{width:100%;max-width:560px;height:60px;display:block;}
+  .waveform-caption{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--niebla);margin-top:10px;text-transform:uppercase;}
+
+  /* influences */
+  .influence-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:30px;}
+  .influence-col h3{
+    font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.18em;
+    color:var(--sangre-viva);text-transform:uppercase;margin-bottom:18px;
+  }
+  .influence-col ul{list-style:none;}
+  .influence-col li{
+    padding:14px 0 14px 18px;border-left:2px solid var(--sangre);
+    margin-bottom:2px;
+  }
+  .influence-col li .name{font-weight:600;color:var(--hueso);display:block;}
+  .influence-col li .desc{color:var(--niebla);font-size:.92rem;}
+
+  /* visual universe cards */
+  .visual-wrap{position:relative;margin-top:30px;}
+  .blob{position:absolute;border-radius:50%;background:var(--ojera);filter:blur(40px);opacity:.55;z-index:0;}
+  .blob.b1{width:180px;height:90px;top:-30px;right:60px;}
+  .blob.b2{width:140px;height:70px;top:120px;right:160px;}
+
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:1;}
+  .card{
+    background:var(--noir-soft);border:1px solid rgba(138,15,36,.3);
+    padding:22px;
+  }
+  .card h4{
+    font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.14em;
+    color:var(--sangre-viva);text-transform:uppercase;margin-bottom:12px;
+  }
+  .swatch-row{display:flex;gap:8px;margin-bottom:10px;}
+  .swatch{width:26px;height:26px;border:1px solid rgba(240,233,230,.2);}
+  .card p{color:var(--niebla);font-size:.9rem;}
+
+  /* saga tags */
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .chip{
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.06em;
+    padding:9px 14px;border:1px solid var(--sangre);color:var(--hueso);
+    background:rgba(138,15,36,.12);
+  }
+
+  /* listen section */
+  .listen-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:30px;}
+  .listen-grid iframe{width:100%;border:none;border-radius:8px;}
+  .press-note{color:var(--niebla);font-size:.95rem;}
+  .press-note strong{color:var(--hueso);}
+
+  footer{
+    padding:46px 0;text-align:center;
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.1em;
+    color:var(--niebla);text-transform:uppercase;
+  }
+  footer .accent{color:var(--sangre-viva);}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{outline:2px solid var(--sangre-viva);outline-offset:3px;}
+
+  @media (max-width:860px){
+    .influence-grid{grid-template-columns:1fr;gap:30px;}
+    .card-grid{grid-template-columns:1fr;}
+    .listen-grid{grid-template-columns:1fr;}
+    .drip{height:40px;}
+    .blob{display:none;}
+  }
+  @media (max-width:540px){
+    .nav-links{gap:14px;}
+    h1.title{font-size:clamp(2.6rem,15vw,4rem);}
+    .code-section{padding:64px 0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="wordmark">FARA<span>K1NG</span></div>
+    <nav class="nav-links">
+      <a href="https://open.spotify.com/intl-es/artist/5mKSsIN4mDcLA37gfgLPyl?si=7dc61b7adc99476b" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/@faravampi" target="_blank" rel="noopener">YouTube</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Press Kit — Artista &amp; Productor</span>
+    <h1 class="title">FARA</h1>
+    <span class="king-stamp">K1NG</span>
+
+    <div class="ticker-row">
+      <span class="dot"></span>
+      <span>SAOKO ACTIVO:</span>
+      <span class="ticker-word" id="tickerWord">SANGRE FRÍA</span>
+    </div>
+
+    <p class="tagline">Empezó en el trap, exploró los géneros urbanos y hoy lidera un sonido propio dentro del dembow: <strong>oscuro, saturado y vampírico</strong>.</p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://open.spotify.com/intl-es/artist/5mKSsIN4mDcLA37gfgLPyl?si=7dc61b7adc99476b" target="_blank" rel="noopener">Escuchar en Spotify</a>
+      <a class="btn btn-secondary" href="https://www.youtube.com/@faravampi" target="_blank" rel="noopener">Ver en YouTube</a>
+    </div>
+  </div>
+  <div class="drip"></div>
+</section>
+
+<main>
+
+  <section class="code-section reveal" id="origen">
+    <div class="container">
+      <div class="code-label"><span class="code-num">CÓDIGO 001</span><span class="code-name">El origen</span></div>
+      <h2>Del trap a su propio <em>código</em></h2>
+      <p class="body-text">FARA es artista y productor. Empezó en el trap, moviéndose entre distintos géneros urbanos en busca de un sonido propio. Hoy se diferencia dentro del dembow con una propuesta oscura y versátil: la que sus oyentes ya conocen como dembow vampírico.</p>
+      <div class="progression">
+        <span class="tag">Trap</span>
+        <span class="arrow">→</span>
+        <span class="tag">Géneros urbanos</span>
+        <span class="arrow">→</span>
+        <span class="tag active">Dembow vampírico</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="code-section reveal" id="sonido">
+    <div class="container">
+      <div class="code-label"><span class="code-num">CÓDIGO 002</span><span class="code-name">El sonido</span></div>
+      <h2>Dembow <em>vampírico</em></h2>
+      <p class="body-text">Oscuro, saturado y con saokos que cambian de piel en cada lanzamiento. Las letras hablan de códigos de lealtad y experiencias propias: un pacto que se repite, canción tras canción.</p>
+      <div class="waveform">
+        <svg viewBox="0 0 560 60" preserveAspectRatio="none">
+          <polyline points="0,30 20,30 28,8 36,52 44,14 52,46 60,30 80,30 88,4 96,56 104,10 112,50 120,30 140,30 148,18 156,42 164,6 172,54 180,30 200,30 210,30 218,2 226,58 234,12 242,48 250,30 270,30 280,30 288,16 296,44 304,8 312,52 320,30 340,30 350,30 358,4 366,56 374,20 382,40 390,30 410,30 420,30 428,10 436,50 444,16 452,44 460,30 480,30 490,30 498,6 506,54 514,22 522,38 530,30 560,30"
+            fill="none" stroke="#e2233f" stroke-width="2"/>
+        </svg>
+        <p class="waveform-caption">Saturación como firma</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="code-section reveal" id="influencias">
+    <div class="container">
+      <div class="code-label"><span class="code-num">CÓDIGO 003</span><span class="code-name">Influencias</span></div>
+      <h2>Referencias del <em>universo</em></h2>
+      <div class="influence-grid">
+        <div class="influence-col">
+          <h3>Sonido</h3>
+          <ul>
+            <li><span class="name">Donaty</span><span class="desc">Referencia dentro del dembow urbano.</span></li>
+            <li><span class="name">Ricchie TuereUnMalo</span><span class="desc">Foco especial en su drillbow.</span></li>
+            <li><span class="name">Kreizy K</span><span class="desc">Influencia en la propuesta urbana.</span></li>
+            <li><span class="name">DFlowAKALaMaldad</span><span class="desc">Referencia dentro del mismo código.</span></li>
+          </ul>
+        </div>
+        <div class="influence-col">
+          <h3>Imagen</h3>
+          <ul>
+            <li><span class="name">Playboi Carti</span><span class="desc">Base de la estética vampírica: misterio y oscuridad.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="code-section reveal" id="universo">
+    <div class="container">
+      <div class="code-label"><span class="code-num">CÓDIGO 004</span><span class="code-name">Universo visual</span></div>
+      <h2>Rojo, negro y <em>ojeras</em> de estudio</h2>
+      <p class="body-text">El universo de FARA es el de los vampiros del dembow: saoko, energía de gira y noches enteras de estudio. Las ojeras son la bitácora visible de cada sesión de grabación. El mood es siempre el mismo: de estudio en estudio, con dedicación, misterio y pasión.</p>
+
+      <div class="visual-wrap">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="card-grid">
+          <div class="card">
+            <h4>Paleta</h4>
+            <div class="swatch-row">
+              <div class="swatch" style="background:#8a0f24"></div>
+              <div class="swatch" style="background:#0b0608"></div>
+              <div class="swatch" style="background:#2b1420"></div>
+            </div>
+            <p>Rojo y negro dominan cada escena.</p>
+          </div>
+          <div class="card">
+            <h4>Ritual</h4>
+            <p>De estudio en estudio: las ojeras como prueba del trabajo nocturno.</p>
+          </div>
+          <div class="card">
+            <h4>Energía</h4>
+            <p>Giras y noches que alimentan el mismo personaje.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="code-section reveal" id="saga">
+    <div class="container">
+      <div class="code-label"><span class="code-num">CÓDIGO 005</span><span class="code-name">La saga</span></div>
+      <h2>Una saga, no solo <em>canciones</em></h2>
+      <p class="body-text">Cada videoclip suma un capítulo a la misma historia. Los mismos símbolos y metáforas vampíricas se repiten y se profundizan lanzamiento tras lanzamiento, construyendo un universo propio dentro del dembow.</p>
+      <div class="chip-row">
+        <span class="chip">Rojo &amp; Negro</span>
+        <span class="chip">Ojeras</span>
+        <span class="chip">Noche y estudio</span>
+        <span class="chip">Metáforas vampíricas</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="code-section reveal" id="contacto">
+    <div class="container">
+      <div class="code-label"><span class="code-num">CÓDIGO 006</span><span class="code-name">Escuchar &amp; contacto</span></div>
+      <h2>Entrar al <em>código</em></h2>
+      <div class="listen-grid">
+        <iframe src="https://open.spotify.com/embed/artist/5mKSsIN4mDcLA37gfgLPyl?utm_source=generator&theme=0" height="280" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="press-note">
+          <p><strong>Para prensa, bookings o más información</strong>, los canales oficiales de FARA son el primer punto de contacto:</p>
+          <p style="margin-top:14px;">
+            <a class="btn btn-secondary" style="margin-top:10px;" href="https://www.youtube.com/@faravampi" target="_blank" rel="noopener">Canal de YouTube</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  FARAK1NG <span class="accent">·</span> Dembow vampírico <span class="accent">·</span> Press Kit 2026
+</footer>
+
+<script>
+  // Ticker de saokos
+  const words = ["SANGRE FRÍA","NOCTURNO","LEALTAD","DRILLBOW","SATURADO","VAMPÍRICO"];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let idx = 0;
+  const tickerEl = document.getElementById('tickerWord');
+
+  if(tickerEl){
+    setInterval(() => {
+      idx = (idx + 1) % words.length;
+      if(reduceMotion){
+        tickerEl.textContent = words[idx];
+      } else {
+        tickerEl.classList.add('fade');
+        setTimeout(() => {
+          tickerEl.textContent = words[idx];
+          tickerEl.classList.remove('fade');
+        }, 350);
+      }
+    }, 2400);
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('in-view');
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.15});
+    reveals.forEach(el => obs.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
